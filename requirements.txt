@@ -1,0 +1,30 @@
+# FastAPI core
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# GraphQL with FastAPI
+strawberry-graphql[fastapi]==0.220.0
+
+# Database (async SQLAlchemy setup)
+sqlalchemy==2.0.30
+asyncpg==0.29.0  # PostgreSQL async driver (use psycopg2-binary for sync)
+
+# Pydantic
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# Auth and env
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.1
+
+# Utils
+python-multipart==0.0.9
+httpx==0.27.0  # Optional, for external service calls
+
+# DB migrations (optional)
+alembic==1.13.1
+
+# Testing
+pytest==8.2.1
+httpx==0.27.0
+
