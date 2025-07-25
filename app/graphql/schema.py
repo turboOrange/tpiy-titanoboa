@@ -4,6 +4,8 @@ from app.graphql.queries.password_query import PasswordQuery
 from app.graphql.queries.user_query import UserQuery
 from app.graphql.mutations.password_mutation import PasswordMutation
 from add.graphql.mutations.user_mutation import UserMutation
+from app.database import get_db
+from fastapi import Depends
 
 
 @strawberry.type
@@ -19,3 +21,7 @@ class Mutation(UserMutation, PasswordMutation):
 
 
 schema = strawberry.Schema(query=Query, Mutation=Mutation)
+
+
+def get_context(db=Depends(get_db)):
+    return {"db": db}

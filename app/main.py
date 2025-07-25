@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 from fastapi import FastAPI
 from strawberry.fastapi import GraphQLRouter
-from graphql.schema import schema  # Define your Strawberry schema here
+from graphql.schema import schema, get_context
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -26,7 +26,7 @@ app = FastAPI(
 # )
 
 # Create GraphQL router and include it
-graphql_app = GraphQLRouter(schema)
+graphql_app = GraphQLRouter(schema, context_getter=get_context)
 app.include_router(graphql_app, prefix="/graphql")
 
 
